@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package com.ayo.roboticarm;
+
+option java_multiple_files = true;
+option java_package = "com.ayo.roboticarmservice";
+option java_outer_classname = "RoboticArmControl";
+
+service RoboticArmControl {
+  rpc MoveArm(MoveArmRequest) returns (MoveArmResponse);
+  rpc PickUpItem(PickUpItemRequest) returns (PickUpItemResponse);
+  rpc PlaceItem(PlaceItemRequest) returns (PlaceItemResponse);
+}
+
+message MoveArmRequest {
+  string arm_id = 1;
+  // Include parameters for movement (e.g., coordinates)
+}
+
+message MoveArmResponse {
+  // Optionally, include any response fields
+}
+
+message PickUpItemRequest {
+  string arm_id = 1;
+  string item_id = 2;
+}
+
+message PickUpItemResponse {
+  // Optionally, include any response fields
+}
+
+message PlaceItemRequest {
+  string arm_id = 1;
+  string destination = 2;
+  string item_id = 3;
+}
+
+message PlaceItemResponse {
+  // Optionally, include any response fields
+}
