@@ -3,11 +3,12 @@ syntax = "proto3";
 package com.ayo.orderprocessing;
 
 option java_multiple_files = true;
-option java_package = "com.ayo.orderprocessingservice";
-option java_outer_classname = "OrderProcessing";
+option java_package = "com.ayo.orderprocessing";
+option java_outer_classname = "OrderProcessingServiceProto";
 
-service OrderProcessing {
+service OrderProcessingService {
   rpc ProcessOrder(ProcessOrderRequest) returns (ProcessOrderResponse);
+  rpc StreamProcessOrders(stream ProcessOrderRequest) returns (ProcessOrderResponse);
 }
 
 message ProcessOrderRequest {
