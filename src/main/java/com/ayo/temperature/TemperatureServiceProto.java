@@ -34,13 +34,13 @@ public final class TemperatureServiceProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\030TemperatureService.proto\022\023com.ayo.temp" +
-      "erature\"\024\n\022TemperatureRequest\"7\n\017Tempera" +
-      "tureData\022\022\n\nproduct_id\030\001 \001(\t\022\020\n\010quantity" +
-      "\030\002 \001(\0052z\n\022TemperatureService\022d\n\021StreamTe" +
-      "mperature\022\'.com.ayo.temperature.Temperat" +
-      "ureRequest\032$.com.ayo.temperature.Tempera" +
-      "tureData0\001B0\n\023com.ayo.temperatureB\027Tempe" +
-      "ratureServiceProtoP\001b\006proto3"
+      "erature\"\024\n\022TemperatureRequest\"&\n\017Tempera" +
+      "tureData\022\023\n\013temperature\030\001 \001(\0012z\n\022Tempera" +
+      "tureService\022d\n\021StreamTemperature\022\'.com.a" +
+      "yo.temperature.TemperatureRequest\032$.com." +
+      "ayo.temperature.TemperatureData0\001B0\n\023com" +
+      ".ayo.temperatureB\027TemperatureServiceProt" +
+      "oP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -65,7 +65,7 @@ public final class TemperatureServiceProto {
     internal_static_com_ayo_temperature_TemperatureData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_ayo_temperature_TemperatureData_descriptor,
-        new java.lang.String[] { "ProductId", "Quantity", });
+        new java.lang.String[] { "Temperature", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

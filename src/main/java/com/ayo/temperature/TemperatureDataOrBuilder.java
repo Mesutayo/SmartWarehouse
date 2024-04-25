@@ -8,17 +8,7 @@ public interface TemperatureDataOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string product_id = 1;</code>
+   * <code>double temperature = 1;</code>
    */
-  java.lang.String getProductId();
-  /**
-   * <code>string product_id = 1;</code>
-   */
-  com.google.protobuf.ByteString
-      getProductIdBytes();
-
-  /**
-   * <code>int32 quantity = 2;</code>
-   */
-  int getQuantity();
+  double getTemperature();
 }

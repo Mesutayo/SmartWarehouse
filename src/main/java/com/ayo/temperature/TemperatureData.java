@@ -16,8 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private TemperatureData() {
-    productId_ = "";
-    quantity_ = 0;
+    temperature_ = 0D;
   }
 
   @java.lang.Override
@@ -44,15 +43,9 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 9: {
 
-            productId_ = s;
-            break;
-          }
-          case 16: {
-
-            quantity_ = input.readInt32();
+            temperature_ = input.readDouble();
             break;
           }
           default: {
@@ -87,47 +80,13 @@ private static final long serialVersionUID = 0L;
             com.ayo.temperature.TemperatureData.class, com.ayo.temperature.TemperatureData.Builder.class);
   }
 
-  public static final int PRODUCT_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object productId_;
+  public static final int TEMPERATURE_FIELD_NUMBER = 1;
+  private double temperature_;
   /**
-   * <code>string product_id = 1;</code>
+   * <code>double temperature = 1;</code>
    */
-  public java.lang.String getProductId() {
-    java.lang.Object ref = productId_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      productId_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string product_id = 1;</code>
-   */
-  public com.google.protobuf.ByteString
-      getProductIdBytes() {
-    java.lang.Object ref = productId_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      productId_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int QUANTITY_FIELD_NUMBER = 2;
-  private int quantity_;
-  /**
-   * <code>int32 quantity = 2;</code>
-   */
-  public int getQuantity() {
-    return quantity_;
+  public double getTemperature() {
+    return temperature_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -144,11 +103,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getProductIdBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, productId_);
-    }
-    if (quantity_ != 0) {
-      output.writeInt32(2, quantity_);
+    if (temperature_ != 0D) {
+      output.writeDouble(1, temperature_);
     }
     unknownFields.writeTo(output);
   }
@@ -159,12 +115,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getProductIdBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, productId_);
-    }
-    if (quantity_ != 0) {
+    if (temperature_ != 0D) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(2, quantity_);
+        .computeDoubleSize(1, temperature_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -182,10 +135,10 @@ private static final long serialVersionUID = 0L;
     com.ayo.temperature.TemperatureData other = (com.ayo.temperature.TemperatureData) obj;
 
     boolean result = true;
-    result = result && getProductId()
-        .equals(other.getProductId());
-    result = result && (getQuantity()
-        == other.getQuantity());
+    result = result && (
+        java.lang.Double.doubleToLongBits(getTemperature())
+        == java.lang.Double.doubleToLongBits(
+            other.getTemperature()));
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -197,10 +150,9 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + PRODUCT_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getProductId().hashCode();
-    hash = (37 * hash) + QUANTITY_FIELD_NUMBER;
-    hash = (53 * hash) + getQuantity();
+    hash = (37 * hash) + TEMPERATURE_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        java.lang.Double.doubleToLongBits(getTemperature()));
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -334,9 +286,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      productId_ = "";
-
-      quantity_ = 0;
+      temperature_ = 0D;
 
       return this;
     }
@@ -364,8 +314,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.ayo.temperature.TemperatureData buildPartial() {
       com.ayo.temperature.TemperatureData result = new com.ayo.temperature.TemperatureData(this);
-      result.productId_ = productId_;
-      result.quantity_ = quantity_;
+      result.temperature_ = temperature_;
       onBuilt();
       return result;
     }
@@ -414,12 +363,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.ayo.temperature.TemperatureData other) {
       if (other == com.ayo.temperature.TemperatureData.getDefaultInstance()) return this;
-      if (!other.getProductId().isEmpty()) {
-        productId_ = other.productId_;
-        onChanged();
-      }
-      if (other.getQuantity() != 0) {
-        setQuantity(other.getQuantity());
+      if (other.getTemperature() != 0D) {
+        setTemperature(other.getTemperature());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -450,97 +395,28 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object productId_ = "";
+    private double temperature_ ;
     /**
-     * <code>string product_id = 1;</code>
+     * <code>double temperature = 1;</code>
      */
-    public java.lang.String getProductId() {
-      java.lang.Object ref = productId_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        productId_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    public double getTemperature() {
+      return temperature_;
     }
     /**
-     * <code>string product_id = 1;</code>
+     * <code>double temperature = 1;</code>
      */
-    public com.google.protobuf.ByteString
-        getProductIdBytes() {
-      java.lang.Object ref = productId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        productId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string product_id = 1;</code>
-     */
-    public Builder setProductId(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      productId_ = value;
+    public Builder setTemperature(double value) {
+      
+      temperature_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string product_id = 1;</code>
+     * <code>double temperature = 1;</code>
      */
-    public Builder clearProductId() {
+    public Builder clearTemperature() {
       
-      productId_ = getDefaultInstance().getProductId();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string product_id = 1;</code>
-     */
-    public Builder setProductIdBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      productId_ = value;
-      onChanged();
-      return this;
-    }
-
-    private int quantity_ ;
-    /**
-     * <code>int32 quantity = 2;</code>
-     */
-    public int getQuantity() {
-      return quantity_;
-    }
-    /**
-     * <code>int32 quantity = 2;</code>
-     */
-    public Builder setQuantity(int value) {
-      
-      quantity_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int32 quantity = 2;</code>
-     */
-    public Builder clearQuantity() {
-      
-      quantity_ = 0;
+      temperature_ = 0D;
       onChanged();
       return this;
     }
