@@ -7,7 +7,7 @@ option java_package = "com.ayo.inventorymanagement";
 option java_outer_classname = "InventoryManagementServiceProto";
 
 service InventoryManagementService {
-  rpc UpdateStock(stream UpdateStockRequest) returns (stream UpdateStockResponse);
+  rpc StreamProductQuantities(stream Product) returns (stream ProductQuantity);
   rpc AddProduct(AddProductRequest) returns (AddProductResponse);
 }
 
@@ -36,4 +36,8 @@ message AddProductRequest {
 
 message AddProductResponse {
   string product_id = 1;
+}
+message ProductQuantity {
+  string product_id = 1;
+  int32 quantity = 2;
 }

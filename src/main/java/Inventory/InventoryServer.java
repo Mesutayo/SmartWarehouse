@@ -1,7 +1,6 @@
 package Inventory;
 
-import Temperature.TemperatureServer;
-import Temperature.TemperatureServiceImpl;
+
 import com.ecwid.consul.v1.ConsulClient;
 import com.ecwid.consul.v1.agent.model.NewService;
 import io.grpc.Server;

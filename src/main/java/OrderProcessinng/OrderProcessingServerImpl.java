@@ -20,14 +20,13 @@ public class OrderProcessingServerImpl extends OrderProcessingServiceGrpc.OrderP
     }
 
     @Override
-    public StreamObserver<ProcessOrderRequest> streamProcessOrders(
-            final StreamObserver<ProcessOrderResponse> responseObserver) {
+    public StreamObserver<ProcessOrderRequest> streamProcessOrders(final StreamObserver<ProcessOrderResponse> responseObserver) {
         return new StreamObserver<ProcessOrderRequest>() {
             @Override
             public void onNext(ProcessOrderRequest request) {
                 // Implement your streaming processing logic here
                 System.out.println("Received order: " + request.getOrderId());
-                // Assume processing logic is successful
+
                 ProcessOrderResponse response = ProcessOrderResponse.newBuilder()
                         .setOrderId(request.getOrderId())
                         .setSuccess(true)
