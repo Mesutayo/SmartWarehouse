@@ -18,6 +18,7 @@ public class TemperatureServiceImpl extends TemperatureServiceGrpc.TemperatureSe
         temperatures.add(new Temperature(17.0));
         temperatures.add(new Temperature(19.4));
     }
+    @Override
     public void streamTemperature(TemperatureRequest request, StreamObserver<TemperatureData> responseObserver) {
         try {
 

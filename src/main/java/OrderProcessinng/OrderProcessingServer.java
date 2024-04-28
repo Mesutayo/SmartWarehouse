@@ -15,7 +15,7 @@ import java.util.Properties;
 
 public class OrderProcessingServer {
     private Server server;
-    private void start() throws IOException {
+    public void start() throws IOException {
         /* The port on which the server should run */
         int port = 5002;
         server = ServerBuilder.forPort(port)

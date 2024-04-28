@@ -16,7 +16,7 @@ import java.util.Properties;
 public class InventoryServer {
 
     private Server server;
-    private void start() throws IOException {
+    public void start() throws IOException {
         /* The port on which the server should run */
         int port = 5001;
         server = ServerBuilder.forPort(port)
